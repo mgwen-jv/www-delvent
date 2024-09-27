@@ -80,7 +80,7 @@ $light-text-color: #fbfbfb;
   background-color: $primary-color;
   color: $light-text-color;
   width: 92px;
-  height: 93px;
+  height: 70px;
   box-shadow: $background-color 10px;
   border-radius: 20px;
   border: 0;
@@ -100,6 +100,28 @@ $light-text-color: #fbfbfb;
   }
 }
 
+// Concert section
+.concert-section {
+  @include phone {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .concert-text {
+    @include phone {
+      order: -1; // This moves the text above the images
+    }
+  }
+
+  .concert-images-container {
+    @include phone {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+}
+
 // Concert images
 @for $i from 1 through 4 {
   .concert-images-#{$i} {
@@ -108,46 +130,119 @@ $light-text-color: #fbfbfb;
     clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
 
     @include phone {
-      width: 100%;
+      width: calc(50% - 7.75px); // 50% minus half of the gap
       height: auto;
       aspect-ratio: 1 / 1;
+      margin-bottom: 15.5px; // Match the main container padding
     }
+
     @include tablet {
       width: 250px;
-      height: 250px;
+      height: 248px;
     }
   }
 }
 
-.concert-images-1 { clip-path: polygon(0 0, 100% 15%, 80% 85%, 10% 100%); }
-.concert-images-2 { clip-path: polygon(10% 0, 80% 10%, 100% 85%, 0 100%); }
-.concert-images-3 { clip-path: polygon(0 15%, 100% 0, 85% 96%, 20% 80%); }
-.concert-images-4 { clip-path: polygon(15% 10%, 85% 0%, 100% 100%, 0 85%); }
+.concert-images-1 { 
+  clip-path: polygon(0 0, 100% 15%, 80% 85%, 10% 100%);
+  @include phone {
+    clip-path: polygon(0 0, 100% 5%, 90% 95%, 5% 100%);
+  }
+  @include tablet {
+    clip-path: polygon(0 0, 100% 10%, 85% 90%, 7% 100%);
+  }
+}
+.concert-images-2 { 
+  clip-path: polygon(10% 0, 80% 10%, 100% 85%, 0 100%);
+  @include phone {
+    clip-path: polygon(5% 0, 90% 5%, 100% 95%, 0 100%);
+  }
+  @include tablet {
+    clip-path: polygon(7% 0, 85% 7%, 100% 90%, 0 100%);
+  }
+}
+.concert-images-3 { 
+  clip-path: polygon(0 15%, 100% 0, 85% 96%, 20% 80%);
+  @include phone {
+    clip-path: polygon(0 5%, 100% 0, 95% 98%, 10% 90%);
+  }
+  @include tablet {
+    clip-path: polygon(0 10%, 100% 0, 90% 97%, 15% 85%);
+  }
+}
+.concert-images-4 { 
+  clip-path: polygon(15% 10%, 85% 0%, 100% 100%, 0 85%);
+  @include phone {
+    clip-path: polygon(5% 5%, 95% 0%, 100% 100%, 0 95%);
+  }
+  @include tablet {
+    clip-path: polygon(10% 7%, 90% 0%, 100% 100%, 0 90%);
+  }
+}
+
+// Specific positioning for mobile view
+@include phone {
+  .concert-images-1, .concert-images-3 {
+    order: 1;
+  }
+  .concert-images-2, .concert-images-4 {
+    order: 2;
+  }
+}
 
 // Form and notification
 .form-notification-container {
   position: relative;
 }
 
-.form-container, .notification-card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
 .form-container {
   @extend %card-style;
+  display: flex;
   justify-content: center;
   align-items: center;
 
   @include phone {
     flex-direction: column;
+    align-items: stretch;
+    padding: 20px; // Reduce padding for mobile
+    margin: -15.5px; // This counteracts the padding of the main container
+  }
 
-    input, button {
-      width: 100%;
+  .form-input-container {
+    display: flex;
+    flex-grow: 1;
+    margin-right: 10px;
+
+    @include phone {
+      flex-direction: column;
+      margin-right: 0;
       margin-bottom: 10px;
+      width: 100%;
+    }
+
+    input {
+      flex-grow: 1;
+      margin-right: 10px;
+
+      @include phone {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+    }
+  }
+
+  .btn-primary {
+    width: 92px;
+    height: 93px;
+
+    @include phone {
+      width: 100%;
+      height: 93px;
+      padding: 15px 0;
+      margin: 0;
+      font-size: 18px;
+      border-radius: 10px;
     }
   }
 }
@@ -246,5 +341,11 @@ $light-text-color: #fbfbfb;
   .col-xl-6, .col-lg-6 {
     width: 100%;
     margin-bottom: 30px;
+  }
+}
+
+.main-container {
+  @include phone {
+    padding: 15.5px;
   }
 }
