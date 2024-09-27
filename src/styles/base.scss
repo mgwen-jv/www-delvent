@@ -1,169 +1,162 @@
+// Import Bootstrap and Google Fonts
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 
+// Variables
+$primary-color: #961EDA;
+$background-color: #F2F5FA;
+$text-color: #0D172C;
+$light-text-color: #fbfbfb;
 
-
-.hero-text-container{
-    padding: 55px 53px;
-    background-color: #F2F5FA;
-    border-radius: 20px;
-}
-.title-text{
-    font-family: 'Bricolage Grotesque';
-    color: #0D172C; 
-    font-size: 64px;
-    font-weight: Bold;
-}
-.subtext{
-    font-family: 'Figtree';
-    font-size: 20px;
-}
-.wait-list{
-    font-family: 'Bricolage Grotesque';
-    font-size: 24px;
-    font-weight: 600;
-}
-.btn-primary{
-    background-color:#961EDA;
-    color: #fbfbfb;
-    width: 92px;
-    height: 93px;
-    box-shadow: #F2F5FA 10px;
-    border-radius: 20px;
-    border: 0px;
-    &:hover{
-        background-color: #fbfbfb;
-        color:#961EDA;
-    }
-}
-.concert-images-1{
-    width: 310px;
-    height: 307px;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
-    clip-path: polygon(0 0, 100% 15%, 80% 85%, 10% 100%);
-}
-.concert-images-2{
-    width: 310px;
-    height: 307px;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
-    clip-path: polygon(10% 0, 80% 10%, 100% 85%, 0 100%);
-}
-.concert-images-3{
-    width: 310px;
-    height: 307px;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
-    clip-path: polygon(0 15%, 100% 0, 85% 96%, 20% 80%);
-}
-.concert-images-4{
-    width: 310px;
-    height: 307px;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
-    clip-path: polygon(15% 10%, 85% 0%, 100% 100%, 0 85%);
-}
-.form-notification-container {
-    position: relative;
-}
-.form-container, .notification-card {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-.form-container {
-    justify-content: center;
-    align-items: center;
-    background-color: #F2F5FA;
-    border-radius: 20px;
-    padding: 39px 53px 39px 55px;
-}
-.notification-card {
-    display: none;
-    background-color: #F2F5FA;
-    border-radius: 20px;
-    padding: 55px 33px;
-}
-.card-body-1{
-    font-family: 'Figtree';
-    font-size: 20px;
-}
-.white-paper{
-    font-family: 'Figtree';
-    padding: 55px 53px;
-    background-color: #F2F5FA;
-    border-radius: 20px;
-    color: #0D172C;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 214px;
-    &:hover{
-        background-color: #961EDA;
-        color: #F2F5FA;
-    }
-}
-// Media query mixins
+// Mixins for responsive design
 @mixin phone {
-    @media (max-width: 767px) { @content; }
+  @media (max-width: 767px) { @content; }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1023px) { @content; }
+}
+
+// Common styles
+%card-style {
+  background-color: $background-color;
+  border-radius: 20px;
+  padding: 55px 53px;
+
+  @include phone {
+    padding: 30px 20px;
   }
-  // Navbar styles
-.navbar {
-    .linkedin-icon {
-      display: none; // Hidden by default
-      color: $primary-text-color; // Use your defined color variable
-      
-      &:hover {
-        color: $accent-color; // Change color on hover
-      }
-      
-      svg {
-        width: 24px;
-        height: 24px;
-      }
-      
-      @include phone {
-        display: block; // Show on phone screens
-      }
-    }
-    
-    .navbar-toggler {
-      @include phone {
-        display: none; // Hide on phone screens
-      }
-    }
-    
-    #navbarNav {
-      @include phone {
-        display: none !important; // Ensure it's hidden on phone screens
-      }
-    }
+  @include tablet {
+    padding: 40px 25px;
   }
-  
-  @mixin tablet {
-    @media (min-width: 768px) and (max-width: 1023px) { @content; }
+}
+
+// Typography
+.title-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  color: $text-color;
+  font-size: 64px;
+  font-weight: bold;
+
+  @include phone {
+    font-size: 36px;
+  }
+  @include tablet {
+    font-size: 48px;
+  }
+}
+
+.subtext {
+  font-family: 'Figtree', sans-serif;
+  font-size: 20px;
+
+  @include phone {
+    font-size: 16px;
+  }
+  @include tablet {
+    font-size: 18px;
+  }
+}
+
+.wait-list {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+
+  @include phone {
+    font-size: 20px;
+  }
+  @include tablet {
+    font-size: 22px;
+  }
+}
+
+// Components
+.hero-text-container {
+  @extend %card-style;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  color: $light-text-color;
+  width: 92px;
+  height: 93px;
+  box-shadow: $background-color 10px;
+  border-radius: 20px;
+  border: 0;
+
+  &:hover {
+    background-color: $light-text-color;
+    color: $primary-color;
   }
 
-  
-  // Responsive styles
-  .title-text {
+  @include phone {
+    width: 70px;
+    height: 70px;
+  }
+  @include tablet {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+// Concert images
+@for $i from 1 through 4 {
+  .concert-images-#{$i} {
+    width: 310px;
+    height: 307px;
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+
     @include phone {
-      font-size: 36px;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
     }
     @include tablet {
-      font-size: 48px;
+      width: 250px;
+      height: 250px;
     }
   }
-  
-  .subtext {
-    @include phone {
-      font-size: 16px;
-    }
-    @include tablet {
-      font-size: 18px;
+}
+
+.concert-images-1 { clip-path: polygon(0 0, 100% 15%, 80% 85%, 10% 100%); }
+.concert-images-2 { clip-path: polygon(10% 0, 80% 10%, 100% 85%, 0 100%); }
+.concert-images-3 { clip-path: polygon(0 15%, 100% 0, 85% 96%, 20% 80%); }
+.concert-images-4 { clip-path: polygon(15% 10%, 85% 0%, 100% 100%, 0 85%); }
+
+// Form and notification
+.form-notification-container {
+  position: relative;
+}
+
+.form-container, .notification-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.form-container {
+  @extend %card-style;
+  justify-content: center;
+  align-items: center;
+
+  @include phone {
+    flex-direction: column;
+
+    input, button {
+      width: 100%;
+      margin-bottom: 10px;
     }
   }
-  
-  .wait-list {
+}
+
+.notification-card {
+  @extend %card-style;
+  display: none;
+
+  .card-title {
     @include phone {
       font-size: 20px;
     }
@@ -171,98 +164,87 @@
       font-size: 22px;
     }
   }
-  
-  .hero-text-container,
-  .form-container,
-  .white-paper,
-  .notification-card {
+
+  .card-text {
     @include phone {
-      padding: 30px 20px;
-    }
-    @include tablet {
-      padding: 40px 25px;
+      font-size: 16px;
     }
   }
-  
-  .btn-primary {
-    @include phone {
-      width: 70px;
-      height: 70px;
-    }
-    @include tablet {
-      width: 80px;
-      height: 80px;
-    }
+}
+
+.card-body-1 {
+  font-family: 'Figtree', sans-serif;
+  font-size: 20px;
+}
+
+// White paper
+.white-paper {
+  @extend %card-style;
+  font-family: 'Figtree', sans-serif;
+  color: $text-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 214px;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $background-color;
   }
-  
-  .concert-images {
-    @for $i from 1 through 4 {
-      &-#{$i} {
-        @include phone {
-          width: 100%;
-          height: auto;
-          aspect-ratio: 1 / 1;
-        }
-        @include tablet {
-          width: 250px;
-          height: 250px;
-        }
-      }
-    }
-  }
-  
-  .white-paper {
-    @include phone {
-      height: auto;
-      min-height: 150px;
-    }
-    @include tablet {
-      height: 180px;
-    }
-  }
-  
-  // Additional responsive adjustments
-  .form-container {
-    @include phone {
-      flex-direction: column;
-    }
-  
-    input, button {
-      @include phone {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-    }
-  }
-  
-  .notification-card {
-    .card-title {
-      @include phone {
-        font-size: 20px;
-      }
-      @include tablet {
-        font-size: 22px;
-      }
-    }
-  
-    .card-text {
-      @include phone {
-        font-size: 16px;
-      }
-    }
-  }
-  
-  // You might need to adjust Bootstrap's grid classes for better responsiveness
+
   @include phone {
-    .col-xl-6, .col-lg-6, .col-md-6 {
-      width: 100%;
-      margin-bottom: 20px;
+    height: auto;
+    min-height: 150px;
+  }
+  @include tablet {
+    height: 180px;
+  }
+}
+
+// Navbar styles
+.navbar {
+  .linkedin-icon {
+    display: none;
+    color: $text-color;
+    
+    &:hover {
+      color: $primary-color;
+    }
+    
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+    
+    @include phone {
+      display: block;
     }
   }
   
-  @include tablet {
-    .col-xl-6, .col-lg-6 {
-      width: 100%;
-      margin-bottom: 30px;
+  .navbar-toggler {
+    @include phone {
+      display: none;
     }
   }
+  
+  #navbarNav {
+    @include phone {
+      display: none !important;
+    }
+  }
+}
+
+// Responsive grid adjustments
+@include phone {
+  .col-xl-6, .col-lg-6, .col-md-6 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@include tablet {
+  .col-xl-6, .col-lg-6 {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
