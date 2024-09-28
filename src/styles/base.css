@@ -13834,9 +13834,9 @@ fieldset:disabled .btn {
 
 @media (max-width: 767px) {
   .concert-section .concert-text {
-    -webkit-box-ordinal-group: 0;
-        -ms-flex-order: -1;
-            order: -1;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
   }
 }
 
@@ -13850,6 +13850,9 @@ fieldset:disabled .btn {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
   }
 }
 
@@ -14048,6 +14051,7 @@ fieldset:disabled .btn {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 53px 55px 10px 55px;
 }
 
 @media (max-width: 767px) {
@@ -14117,6 +14121,17 @@ fieldset:disabled .btn {
   }
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .form-container .btn-primary {
+    width: 100%;
+    height: 93px;
+    padding: 15px 0;
+    margin: 0;
+    font-size: 24px;
+    border-radius: 10px;
+  }
+}
+
 .notification-card {
   display: none;
 }
@@ -14168,12 +14183,15 @@ fieldset:disabled .btn {
   .white-paper {
     height: auto;
     min-height: 150px;
+    width: 100%;
+    padding: 30px 20px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .white-paper {
     height: 180px;
+    padding: 40px 25px;
   }
 }
 

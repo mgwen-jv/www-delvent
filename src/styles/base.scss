@@ -109,7 +109,7 @@ $light-text-color: #fbfbfb;
 
   .concert-text {
     @include phone {
-      order: -1; 
+      order: 1; // This moves the text above the images
     }
   }
 
@@ -118,6 +118,7 @@ $light-text-color: #fbfbfb;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      order: 2; // This moves the images below the text
     }
   }
 }
@@ -130,10 +131,10 @@ $light-text-color: #fbfbfb;
     clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
 
     @include phone {
-      width: calc(50% - 7.75px); 
+      width: calc(50% - 7.75px); // 50% minus half of the gap
       height: auto;
       aspect-ratio: 1 / 1;
-      margin-bottom: 15.5px; 
+      margin-bottom: 15.5px; // Match the main container padding
     }
 
     @include tablet {
@@ -180,7 +181,7 @@ $light-text-color: #fbfbfb;
   }
 }
 
-
+// Specific positioning for mobile view
 @include phone {
   .concert-images-1, .concert-images-3 {
     order: 1;
@@ -200,6 +201,7 @@ $light-text-color: #fbfbfb;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 53px 55px 10px 55px;
 
   @include phone {
     flex-direction: column;
@@ -242,6 +244,14 @@ $light-text-color: #fbfbfb;
       padding: 15px 0;
       margin: 0;
       font-size: 18px;
+      border-radius: 10px;
+    }
+    @include tablet(){
+      width: 100%;
+      height: 93px;
+      padding: 15px 0;
+      margin: 0;
+      font-size: 24px;
       border-radius: 10px;
     }
   }
@@ -290,9 +300,13 @@ $light-text-color: #fbfbfb;
   @include phone {
     height: auto;
     min-height: 150px;
+    width: 100%; // Full width of its container
+    padding: 30px 20px; // Match the padding of other elements on mobile
   }
+
   @include tablet {
     height: 180px;
+    padding: 40px 25px; // Match the padding of other elements on tablet
   }
 }
 
