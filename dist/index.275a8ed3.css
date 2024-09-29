@@ -13429,7 +13429,7 @@ textarea.form-control-lg {
 
 @media (width <= 767px) {
   .title-text {
-    font-size: 39px;
+    font-size: 36px;
   }
 }
 
@@ -13464,7 +13464,6 @@ textarea.form-control-lg {
 
 @media (width <= 767px) {
   .wait-list {
-    margin-top: 10px;
     font-size: 20px;
   }
 }
@@ -13511,21 +13510,15 @@ textarea.form-control-lg {
     display: flex;
   }
 
-  .concert-section > .concert-images-container {
-    flex-wrap: wrap;
-    order: -1;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    display: flex;
-  }
-
-  .concert-section > .hero-text-container {
-    order: 0;
-    margin-left: 20px;
-  }
-
-  .concert-section > .concert-text {
+  .concert-section .concert-text {
     order: 1;
+  }
+
+  .concert-section .concert-images-container {
+    flex-wrap: wrap;
+    order: 2;
+    justify-content: space-between;
+    display: flex;
   }
 }
 
@@ -13682,11 +13675,6 @@ textarea.form-control-lg {
 }
 
 @media (width <= 767px) {
-  .concert-images-container .concert-images-1, .concert-images-container .concert-images-2, .concert-images-container .concert-images-3, .concert-images-container .concert-images-4 {
-    width: 48%;
-    margin-bottom: 10px;
-  }
-
   .concert-images-1, .concert-images-3 {
     order: 1;
   }
@@ -13703,7 +13691,6 @@ textarea.form-control-lg {
 .form-container {
   justify-content: center;
   align-items: center;
-  margin-left: 10px;
   padding: 53px 55px 10px;
   display: flex;
 }
@@ -13801,10 +13788,9 @@ textarea.form-control-lg {
 
 .white-paper {
   color: #0d172c;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 214px;
-  margin-left: 10px;
   font-family: Figtree, sans-serif;
   display: flex;
 }
@@ -13816,13 +13802,9 @@ textarea.form-control-lg {
 
 @media (width <= 767px) {
   .white-paper {
-    background-color: #fbfbfb;
-    border: 2px solid #961eda;
     width: 100%;
-    max-width: 450px;
     height: auto;
     min-height: 150px;
-    margin-top: 50px;
     padding: 30px 20px;
   }
 }
@@ -13834,110 +13816,31 @@ textarea.form-control-lg {
   }
 }
 
-.white-paper h4, .white-paper .h4 {
-  margin: 0;
-}
-
-.white-paper svg {
-  flex-shrink: 0;
-}
-
-.form-whitepaper-container {
-  flex-direction: row;
-  display: flex;
-}
-
-@media (width <= 767px) {
-  .form-whitepaper-container {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-left: 10px;
-    padding: 0 15.5px;
-    display: flex;
-  }
-
-  .main-container {
-    padding: 15.5px;
-  }
-
-  .container, .container > .row:first-child {
-    flex-direction: column;
-    display: flex;
-  }
-
-  .container > .row:first-child > .col-xl-6:first-child {
-    order: 2;
-  }
-
-  .container > .row:first-child > .col-xl-6:last-child {
-    order: 1;
-  }
-
-  .concert-images-container {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    display: flex;
-  }
-
-  .concert-images-container .concert-images-1, .concert-images-container .concert-images-2, .concert-images-container .concert-images-3, .concert-images-container .concert-images-4 {
-    aspect-ratio: 1;
-    width: calc(50% - 7.75px);
-    height: auto;
-    margin-bottom: 15.5px;
-  }
-
-  .hero-text-container {
-    margin-bottom: 20px;
-    margin-left: 10px;
-  }
-}
-
-.navbar .container {
-  padding: 15px 0;
-}
-
-.navbar .navbar-content {
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  display: flex;
-}
-
-.navbar .navbar-brand {
-  color: #0d172c;
-  align-items: center;
-  text-decoration: none;
-  display: flex;
-}
-
-.navbar .navbar-brand img {
-  margin-right: 10px;
-}
-
-.navbar .navbar-brand span {
-  font-size: 24px;
-  font-weight: bold;
-}
-
 .navbar .linkedin-icon {
-  background-color: #f2f5fa;
-  border-radius: 5px;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  display: flex;
+  color: #0d172c;
+  display: none;
+}
+
+.navbar .linkedin-icon:hover {
+  color: #961eda;
 }
 
 .navbar .linkedin-icon svg {
-  color: #0a66c2;
+  width: 24px;
+  height: 24px;
 }
 
 @media (width <= 767px) {
-  .navbar .container {
-    padding: 10px 15px;
+  .navbar .linkedin-icon {
+    display: block;
+  }
+
+  .navbar .navbar-toggler {
+    display: none;
+  }
+
+  .navbar #navbarNav {
+    display: none !important;
   }
 
   .col-xl-6, .col-lg-6, .col-md-6 {
@@ -13950,6 +13853,12 @@ textarea.form-control-lg {
   .col-xl-6, .col-lg-6 {
     width: 100%;
     margin-bottom: 30px;
+  }
+}
+
+@media (width <= 767px) {
+  .main-container {
+    padding: 15.5px;
   }
 }
 /*# sourceMappingURL=index.275a8ed3.css.map */
